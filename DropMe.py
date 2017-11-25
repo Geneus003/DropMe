@@ -11,17 +11,25 @@ root.minsize(width=1280, height=720)
 
 def registerScreen():
 
-    root["bg"] = "#5D9CE5"
+    DropMe_Logo = ImageTk.PhotoImage(file = "images/DropmeLogo.png")
 
-    DropMe_Label= Label(root, text="DropMe", font="Arial 60", height=1, width=6, bd=0, bg='#5D9CE5', fg="white")
-    Login_label = Label(root,text = "Login",font = "Arial 25",height = 1,width = 5,bg = '#5D9CE5',fg = "White")
-    Password_label = Label(root, text = "Password",font = "Arial 25",height = 1,width = 8,bg = "#5D9CE5",fg = "White")
-    Login_Entry = Entry(root,font = "Arial 25",width = 20,bg = "#5D9CE5", fg = "white",highlightthickness=0, relief='ridge',bd = 0)
+    root["bg"] = "#1d1d1d"
 
-    DropMe_Label.place(x = 500, y = 50)
+    DropMe_Label = Label(root, image = DropMe_Logo, bg='#1d1d1d')
+    Login_label = Label(root,text = "Login",font = "Serene 25",height = 1,width = 5,bg = '#1d1d1d',fg = "White")
+    Password_label = Label(root, text = "Password",font = "Serene 25",height = 1,width = 8,bg = "#1d1d1d",fg = "White")
+    Login_Entry = Entry(root,font = "Serene 25",width = 20, fg = "black",highlightthickness=0, relief='ridge',bd = 0)
+    Register_Entry = Entry(root,font = "Serene 25",width = 20,fg = 'black',highlightthickness = 0,relief = "ridge",bd = 0)
+    Entry_But = Button(root)
+
+    DropMe_Label.image = DropMe_Logo
+
+
+    DropMe_Label.place(x = 360, y = 10)
     Login_label.place(x = 400,y = 250)
     Password_label.place(x = 400,y = 380)
     Login_Entry.place(x = 410,y = 315)
+    Register_Entry.place(x = 410, y = 445)
 
 
 def DropMe():
