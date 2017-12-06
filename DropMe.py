@@ -1,40 +1,36 @@
-from tkinter import *
-from PIL import Image, ImageDraw
-from PIL import ImageTk
-import os.path
-from threading import Thread
+from PyQt5.QtWidgets import (QApplication, QWidget, QPushButton)
+from PyQt5.QtCore import Qt
+import sys
 
-from tkinter import *
-
-root = Tk()
-root.minsize(width=1280, height=720)
-
-def registerScreen():
-
-    DropMe_Logo = ImageTk.PhotoImage(file = "images/DropmeLogo.png")
-
-    root["bg"] = "#1d1d1d"
-
-    DropMe_Label = Label(root, image = DropMe_Logo, bg='#1d1d1d')
-    Login_label = Label(root,text = "Login",font = "Serene 25",height = 1,width = 5,bg = '#1d1d1d',fg = "White")
-    Password_label = Label(root, text = "Password",font = "Serene 25",height = 1,width = 8,bg = "#1d1d1d",fg = "White")
-    Login_Entry = Entry(root,font = "Serene 25",width = 20, fg = "black",highlightthickness=0, relief='ridge',bd = 0)
-    Register_Entry = Entry(root,font = "Serene 25",width = 20,fg = 'black',highlightthickness = 0,relief = "ridge",bd = 0)
-    Entry_But = Button(root)
-
-    DropMe_Label.image = DropMe_Logo
+app = QApplication(sys.argv)
+root = QWidget()
 
 
-    DropMe_Label.place(x = 360, y = 10)
-    Login_label.place(x = 400,y = 250)
-    Password_label.place(x = 400,y = 380)
-    Login_Entry.place(x = 410,y = 315)
-    Register_Entry.place(x = 410, y = 445)
+class RegisterScreenVar:
+
+    def __init__(self):
+
+        self.reg_button = QPushButton('Register', root)
+
+reg_screen_var = RegisterScreenVar()
 
 
-def DropMe():
-    registerScreen()
-    root.mainloop()
+def drop_me(reg_screen_var, root, app):
 
-DropMe()
+    def register_screen():
 
+        root.resize(1080, 720)
+        root.move(400, 200)
+        root.setWindowTitle('Drop_Me')
+
+        reg_screen_var.reg_button.setCheckable(True)
+        reg_screen_var.reg_button.move(100, 100)
+        reg_screen_var.reg_button.setStyleSheet(root, {background-color = "red"})
+
+        root.show()
+
+        sys.exit(app.exec_())
+
+    register_screen()
+
+drop_me(reg_screen_var, root, app)
