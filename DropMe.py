@@ -1,5 +1,5 @@
-from PyQt5.QtWidgets import (QApplication, QWidget, QPushButton,QLabel)
-from PyQt5.QtGui import (QImage, QPalette, QBrush, QPixmap)
+from PyQt5.QtWidgets import (QApplication, QWidget, QPushButton, QLabel, QLineEdit)
+from PyQt5.QtGui import (QPixmap, QFont, QImage)
 from PyQt5.QtCore import Qt
 import sys
 
@@ -13,8 +13,10 @@ class RegisterScreenVar:
 
         self.reg_button = QPushButton('Register', root)
         self.drop_logo = QLabel(root)
-        self.drop_png = QPixmap("images/DropmeLogo.png")
-        self.login_lab = QLabel('Login',root)
+        self.drop_png = QPixmap("images/DropMeLogo.png")
+        self.login_lab = QLabel('Login:', root)
+        self.pas_lab = QLabel('Password:', root)
+        self.login_box = QLineEdit(root)
 
 
 reg_screen_var = RegisterScreenVar()
@@ -24,23 +26,29 @@ def drop_me(reg_screen_var, root, app):
 
     def register_screen():
 
-        root.resize(1080, 720)
+        root.resize(1280, 720)
         root.move(400, 200)
         root.setWindowTitle('Drop_Me')
-        root.setStyleSheet('background-color:#529AB9;')
+        root.setStyleSheet('background-image: url(images/reg_back.png);')
 
         reg_screen_var.reg_button.setCheckable(True)
         reg_screen_var.reg_button.move(100, 100)
-        reg_screen_var.reg_button.setStyleSheet('QPushButton {background-color: #A3C1DA; color: red;height:50px ; width:50px;}')
+        reg_screen_var.reg_button.setStyleSheet('QPushButton {background-color: #A3C1DA}')
 
         reg_screen_var.drop_logo.setPixmap(reg_screen_var.drop_png)
         reg_screen_var.drop_logo.move(280, 0)
 
-        reg_screen_var.login_lab.setStyleSheet('QLabel {background-color: red}')
-        reg_screen_var.login_lab.move(300, 200)
+        reg_screen_var.login_lab.setFont(QFont("OpenSans-Regular", 20, QFont.Bold))
+        reg_screen_var.login_lab.setStyleSheet('QLabel {color: #F6F6F6}')
+        reg_screen_var.login_lab.move(200, 230)
 
+        reg_screen_var.pas_lab.setFont(QFont("OpenSans-Regular", 20, QFont.Bold))
+        reg_screen_var.pas_lab.setStyleSheet('QLabel {color: #F6F6F6}')
+        reg_screen_var.pas_lab.move(200, 350)
 
-
+        reg_screen_var.login_box.setFont(QFont("OpenSans-Regular", 18, QFont.Bold))
+        reg_screen_var.login_box.setStyleSheet('QLineEdit {color:#F6F6F6; width: 400px}')
+        reg_screen_var.login_box.move(400, 400)
 
         root.show()
 
