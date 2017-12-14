@@ -1,6 +1,6 @@
 from PyQt5.QtWidgets import (QApplication, QWidget, QPushButton, QLabel, QLineEdit)
-from PyQt5.QtGui import (QPixmap, QFont, QImage)
-from PyQt5.QtCore import Qt
+from PyQt5.QtGui import (QPixmap, QFont, QIcon)
+from PyQt5.QtCore import (Qt, QSize)
 import sys
 
 app = QApplication(sys.argv)
@@ -11,9 +11,10 @@ class RegisterScreenVar:
 
     def __init__(self):
 
-        self.reg_button = QPushButton('Register', root)
         self.drop_logo = QLabel(root)
         self.drop_png = QPixmap("images/DropMeLogo.png")
+        self.login_but = QLabel(root)
+        self.login_but_img = QPixmap("images/Login_but.png")
         self.login_lab = QLabel('Login', root)
         self.pas_lab = QLabel('Password', root)
         self.login_box = QLineEdit(root)
@@ -33,11 +34,9 @@ def drop_me(reg_screen_var, root, app):
         root.setWindowTitle('Drop_Me')
         root.setStyleSheet('background-image: url(images/reg_back.png);')
 
-        reg_screen_var.reg_button.setCheckable(False)
-        reg_screen_var.reg_button.setAttribute(Qt.WA_TranslucentBackground, True)
-        reg_screen_var.reg_button.setFont(QFont("OpenSans-Regular", 20, QFont.Bold))
-        reg_screen_var.reg_button.setStyleSheet('QPushButton {border-style: solid; border-width: 1px;}')
-        reg_screen_var.reg_button.move(100, 100)
+        reg_screen_var.login_but.setPixmap(reg_screen_var.login_but_img)
+        reg_screen_var.login_but.setAttribute(Qt.WA_TranslucentBackground, True)
+        reg_screen_var.login_but.move(520, 500)
 
         reg_screen_var.drop_logo.setPixmap(reg_screen_var.drop_png)
         reg_screen_var.drop_logo.setAttribute(Qt.WA_TranslucentBackground, True)
