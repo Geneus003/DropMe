@@ -37,13 +37,16 @@ def drop_me(reg_screen_var, root, app):
 
         reg_screen_var.drop_logo.setPixmap(reg_screen_var.drop_png)
         reg_screen_var.drop_logo.move(280, 0)
+        reg_screen_var.drop_logo.setAttribute(Qt.WA_TranslucentBackground, True)
 
         reg_screen_var.login_lab.setFont(QFont("OpenSans-Regular", 20, QFont.Bold))
         reg_screen_var.login_lab.setStyleSheet('QLabel {color: #F6F6F6}')
+        reg_screen_var.login_lab.setAttribute(Qt.WA_TranslucentBackground, True)
         reg_screen_var.login_lab.move(200, 230)
 
         reg_screen_var.pas_lab.setFont(QFont("OpenSans-Regular", 20, QFont.Bold))
         reg_screen_var.pas_lab.setStyleSheet('QLabel {color: #F6F6F6}')
+        reg_screen_var.pas_lab.setAttribute(Qt.WA_TranslucentBackground, True)
         reg_screen_var.pas_lab.move(200, 350)
 
         reg_screen_var.login_box.setFont(QFont("OpenSans-Regular", 18, QFont.Bold))
