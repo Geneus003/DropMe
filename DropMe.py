@@ -1,14 +1,13 @@
-from PyQt5.QtWidgets import (QApplication, QWidget, QPushButton, QLabel, QLineEdit)
+from PyQt5.QtWidgets import (QApplication, QWidget, QLabel, QLineEdit, QPushButton)
 from PyQt5.QtGui import (QPixmap, QFont, QMouseEvent)
-from PyQt5.QtCore import (Qt, QEvent, pyqtSignal, QCoreApplication)
+from PyQt5.QtCore import (Qt, QEvent, pyqtSignal, QCoreApplication, QObject)
 import sys
 
 app = QApplication(sys.argv)
 root = QWidget()
-name_event = pyqtSignal()
 
 
-class RegisterScreenVar:
+class RegisterScreenVar():
 
     def __init__(self):
 
@@ -20,18 +19,7 @@ class RegisterScreenVar:
         self.pas_lab = QLabel('Password', root)
         self.login_box = QLineEdit(root)
         self.reg_box = QLineEdit(root)
-        self.new_account = QLabel("Don't have an account?", root)
-        self.new_word = ""
-        # self.presss()
-
-    def presss(self):
-        btn = QPushButton("Print", root)
-        btn.clicked.connect(self.printtt)
-        btn.resize(100, 100)
-        btn.move(600, 600)
-
-    def printtt(self):
-        print("hello")
+        self.new_account = QPushButton("Don't have an account?", root)
 
 
 reg_screen_var = RegisterScreenVar()
@@ -73,10 +61,11 @@ def drop_me():
         reg_screen_var.reg_box.setStyleSheet('QLineEdit {color:black; width: 300px}')
         reg_screen_var.reg_box.move(470, 400)
 
-        reg_screen_var.new_account.setAttribute(Qt.WA_TranslucentBackground, True)
-        reg_screen_var.new_account.setStyleSheet("QLabel {color: #F6F6F6}")
+        reg_screen_var.new_account.setStyleSheet("QPushButton {color: #F6F6F6}")
         reg_screen_var.new_account.setFont(QFont("OpenSans-Regular", 10, QFont.Bold))
+        reg_screen_var.new_account.setAutoFillBackground(True)
         reg_screen_var.new_account.move(540, 620)
+
 
         root.show()
 
