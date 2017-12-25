@@ -20,7 +20,14 @@ class RegisterScreenVar():
         self.login_box = QLineEdit(root)
         self.reg_box = QLineEdit(root)
         self.new_account = QPushButton("Don't have an account?", root)
+        self.initui()
 
+    def initui(self):
+
+        self.new_account.clicked.connect(self.printt)
+
+    def printt(self):
+        print("hello")
 
 reg_screen_var = RegisterScreenVar()
 
@@ -61,11 +68,8 @@ def drop_me():
         reg_screen_var.reg_box.setStyleSheet('QLineEdit {color:black; width: 300px}')
         reg_screen_var.reg_box.move(470, 400)
 
-        reg_screen_var.new_account.setStyleSheet("QPushButton {color: #F6F6F6}")
         reg_screen_var.new_account.setFont(QFont("OpenSans-Regular", 10, QFont.Bold))
-        reg_screen_var.new_account.setAutoFillBackground(True)
-        reg_screen_var.new_account.move(540, 620)
-
+        reg_screen_var.new_account.move(420, 580)
 
         root.show()
 
